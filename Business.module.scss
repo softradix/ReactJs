@@ -1,0 +1,139 @@
+@import './../../../assets/scss/variables.scss';
+.main {
+  padding-bottom: 5em;
+  .link {
+    text-decoration: none;
+    color: inherit;
+  }
+  .headerInfo {
+    position: relative;
+    .bannerImage {
+      height: 312px;
+      clip-path: polygon(0 0, 100% 0%, 100% 85%, 0 70%);
+      object-fit: cover;
+      width: 100%;
+    }
+    .backBtn {
+      position: absolute;
+      float: left;
+      left: 16px;
+      top: 23px;
+      background-color: $white-color;
+      z-index: 1000;
+    }
+    .profileImage {
+      width: 95px;
+      height: 95px;
+      margin: auto;
+      position: absolute;
+      top: 50%;
+      box-shadow: 0px 1px 4px 2px rgba(0, 0, 0, 0.25);
+      left: 16px;
+    }
+    .businessInfo {
+      padding: 0px 20px;
+      color: $black-color;
+      text-align: left;
+      margin-bottom: 20px;
+      .businessName {
+        font-weight: bold;
+        margin-top: -32px;
+        font-size: 22px;
+      }
+      .businessType {
+        text-transform: capitalize;
+        .bullet {
+          display: inline-block;
+          margin: 0 2px;
+          transform: scale(0.8);
+        }
+      }
+      .info {
+        padding: 0 12px;
+      }
+      .menus {
+        text-align: right;
+        .menusSelectBox {
+          font-size: 15px;
+          font-weight: bold;
+          border-bottom: none;
+          &:before {
+            border-bottom: none;
+          }
+          &:after {
+            border-bottom: none;
+          }
+        }
+      }
+    }
+  }
+  .featuredItems {
+    position: relative;
+    .businessInfo {
+      padding: 0px 20px;
+      color: $black-color;
+      text-align: left;
+      margin-bottom: 20px;
+      .title {
+        font-weight: bold;
+        margin-top: 20px;
+        font-size: 18px;
+      }
+      .subTitle {
+        font-size: 13px;
+      }
+    }
+  }
+  .featureList {
+    overflow-x: auto;
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+    .listItem {
+      width: 39.33%;
+      padding: 5px;
+      .productContent {
+        padding: 0px;
+        .productTitle {
+          font-size: 13px;
+          font-weight: bold;
+        }
+        .productPrice {
+          font-size: 12px;
+        }
+      }
+      .productImage {
+        height: 127px;
+        width: 135px;
+        object-fit: cover;
+        border-radius: 5px;
+      }
+    }
+  }
+  .categoriesList {
+    width: 100%;
+    .categoryItem {
+      border-bottom: 1px solid #e4e4e4;
+      .arrowIcon {
+        background: $black-color;
+        color: $white-color;
+        padding: 10px;
+        svg {
+          width: 0.7em;
+          height: 0.7em;
+        }
+      }
+      .categoryName {
+        width: 100%;
+        span {
+          font-weight: 600;
+          font-size: 15px;
+        }
+        p {
+          font-size: 14px;
+          color: $black-color;
+        }
+      }
+    }
+  }
+}
