@@ -1,0 +1,27 @@
+@import "../var";
+
+.topButton {
+  position: fixed;
+  z-index: 999;
+}
+
+.headerBanner_wrap {
+  background-color: #16087e;
+  padding-top: 4rem;
+  @include max($lg) {
+    padding-top: 24px;
+    overflow: hidden;
+  }
+  @media only screen and (max-device-width: 991px) {
+    background-color: #130774;
+  }
+}
+.blueSection_wrap {
+  background-color: #150067;
+}
+.blackSections_wrap {
+  position: relative;
+  z-index: 1;
+  background-color: $black;
+  color: $white;
+}

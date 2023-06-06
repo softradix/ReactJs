@@ -1,0 +1,41 @@
+@import "../var";
+
+.header {
+  position: relative;
+  z-index: 99;
+  .headerInner {
+    @include flexCenterX;
+    justify-content: space-between;
+  }
+  .logo {
+    img {
+      max-height: 68px;
+      @include max($lg) {
+        max-height: 57px;
+      }
+    }
+  }
+  .social_wrap {
+    @include flexCenterX;
+    color: $white;
+    gap: 1.4rem;
+    svg {
+      height: 18px;
+      width: 18px;
+    }
+    span {
+      padding: 4px;
+      transition: $hoverTransition;
+      &:hover {
+        color: $themeYellow;
+      }
+    }
+  }
+  .navbar {
+    @include flexCenterX;
+    gap: 2.5rem;
+    @include max($lg) {
+      display: none;
+    }
+  }
+}

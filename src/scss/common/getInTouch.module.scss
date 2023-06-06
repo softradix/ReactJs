@@ -1,0 +1,252 @@
+@import "../var";
+
+.appGetTouch {
+  font-family: "Poppins", sans-serif;
+  position: relative;
+  display: block;
+  padding: 140px 0;
+  background-color: #000000;
+  margin-top: -1px;
+  img {
+    max-width: 100%;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 40%;
+    top: 40%;
+    height: 430px;
+    background-color: #4c40f7;
+    z-index: 1;
+    transform: skewY(-20deg);
+  }
+
+  .layer {
+    clip-path: polygon(0 52%, 100% 0, 100% 100%, 0 100%);
+    background-color: #00113b;
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    left: 0;
+    bottom: -1px;
+    // transform: translateX(-50%);
+    height: 70%;
+  }
+  @include max($lg) {
+    padding: 50px 0 120px;
+  }
+}
+.boxWrapper {
+  position: relative;
+  z-index: 2;
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    background-color: #203696;
+    height: 40px;
+    border-radius: 50px;
+    width: 95%;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 40%);
+  }
+  &::after {
+    transform: translate(-50%, 80%);
+    background-color: #1b1b87;
+    z-index: -2;
+    width: 90%;
+  }
+  .cubeImg {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    transform: translate(120%, -25%);
+    opacity: 0.25;
+    z-index: -2;
+    @include max($lg) {
+      display: none;
+    }
+  }
+}
+.box {
+  --boxPadding: 100px;
+  position: relative;
+  z-index: 3;
+  background: #ffffff;
+  border-radius: 48px;
+  box-shadow: 0px 0px 30px -15px rgb(32 38 47 / 40%);
+  min-height: 500px;
+  padding-bottom: calc(var(--boxPadding) / 2);
+
+  @include max(991) {
+    --boxPadding: 30px;
+    border-radius: 30px;
+    h1 {
+      br {
+        display: none;
+      }
+    }
+  }
+  .boxTop {
+    padding: var(--boxPadding);
+    @include min($lg) {
+      padding-bottom: calc(var(--boxPadding) / 3);
+    }
+  }
+}
+.fieldsWrapper {
+  margin-top: 2.5rem;
+  @include max($md) {
+    margin-top: 1.5rem;
+  }
+}
+.submitBtn {
+  button {
+    border-radius: 40px;
+    @include max($md) {
+      min-height: 42px;
+    }
+  }
+}
+.rightSection {
+  img {
+    max-width: 70%;
+  }
+  .image {
+    display: none;
+    @include min(992) {
+      display: block;
+      position: relative;
+      margin-top: calc(-1 * (var(--boxPadding) / 1.5));
+      right: calc(-1 * (var(--boxPadding) / 3));
+      text-align: right;
+      img {
+        max-width: 95%;
+      }
+    }
+  }
+}
+.leftSection {
+  // position: sticky;
+  // top: 1.5rem;
+  .title {
+    position: relative;
+    font-weight: 500;
+    font-size: 1.15rem;
+    letter-spacing: 0.05em;
+    line-height: 1.16;
+    color: $primary;
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    &::before {
+      content: " ";
+      display: inline-block;
+      flex-shrink: 0;
+      height: 2px;
+      width: 50px;
+      background: currentColor;
+      position: relative;
+      top: -5px;
+    }
+    @include max($md) {
+      font-size: 15px;
+      gap: 1rem;
+      &::before {
+        width: 30px;
+      }
+    }
+  }
+  h1 {
+    font-size: clamp(30px, 4vw, 84px);
+    margin: 1.35rem 0 2.5rem;
+    line-height: 1;
+    font-weight: 600;
+    color: #111029;
+  }
+  .subTitle {
+    color: #6b6b6b;
+  }
+  @include max($md) {
+    h1 {
+      margin-bottom: 1.25rem;
+    }
+  }
+}
+.emailAddress {
+  margin-top: 2.5rem;
+  font-size: 1.15rem;
+  line-height: 1.45;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  svg {
+    color: $primary;
+    flex-shrink: 0;
+    max-width: 22px;
+    height: auto;
+  }
+  @include max($lg) {
+    gap: 1rem;
+    font-size: 14px;
+  }
+  @include max($md) {
+    margin-top: 1.75rem;
+  }
+}
+
+.socialIcons {
+  margin-top: 2rem;
+  display: flex;
+  .col {
+    flex-basis: 25%;
+    max-width: 25%;
+    padding: 0 10px;
+  }
+  a {
+    color: #777e90;
+    line-height: 1;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: #fff;
+    min-height: 120px;
+    transition: 0.15s linear;
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    svg {
+      width: 18px;
+      height: auto;
+    }
+    @include min($lg) {
+      &:hover {
+        box-shadow: 0px 0px 30px -15px rgb(32 38 47 / 40%);
+      }
+    }
+  }
+  @include max($lg) {
+    margin: 1rem 0;
+    a {
+      padding: 5px;
+      min-height: 0;
+      min-width: 0;
+      justify-content: center;
+      .col {
+        flex-basis: auto;
+      }
+      svg {
+        color: #203696;
+        width: 22px;
+        height: auto;
+      }
+      .name {
+        display: none;
+      }
+    }
+  }
+}

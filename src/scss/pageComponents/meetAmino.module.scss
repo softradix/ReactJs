@@ -1,0 +1,73 @@
+@import "../var";
+@mixin floatingText {
+  position: absolute;
+  // color: #fbca6d;
+  background: linear-gradient(
+    180deg,
+    #a9f5ff 0%,
+    rgba(1, 125, 248, 0.7) 63.54%,
+    rgba(0, 89, 176, 0.22) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+.meetAmino {
+  background-color: #000;
+  overflow: hidden;
+  position: relative;
+  .topText {
+    @include floatingText;
+    top: 0;
+    left: 2rem;
+  }
+  .bottomText {
+    @include floatingText;
+    top: 100vh;
+    transform: translateY(-100%);
+    right: 2rem;
+  }
+  @include max($lg) {
+    display: none;
+  }
+  .meetAmino_wrapper {
+    text-align: center;
+    position: relative;
+    aspect-ratio: 16/9;
+    // padding-bottom: 54.924%;
+    img {
+      top: 0;
+      max-height: 100%;
+      top: 0;
+      left: 50%;
+      height: 100%;
+      transform: translateX(-50%);
+      position: absolute;
+    }
+    .videoWrap {
+      position: absolute;
+      // width: 349px;
+      // height: 180px;
+      height: 16.7%;
+      max-width: 100%;
+      max-height: 100%;
+      transform: rotate(-45deg) translate(-17.8%, -101%);
+      width: 18%;
+      top: 50%;
+      left: 50%;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  @media (max-aspect-ratio: 16/9) {
+    .bottomText {
+      top: 100%;
+    }
+  }
+}

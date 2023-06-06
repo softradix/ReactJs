@@ -1,0 +1,65 @@
+$primary: #4c40f7;
+$secondary: #f9f9f9;
+$themeBlue: #009ee2;
+$themePink: #e5007e;
+$themeYellow: #f8b133;
+$white: #fff;
+$black: #000;
+$bgBlue: #16087e;
+
+// ============ transitions ================
+$hoverTransition: 0.125s linear;
+$sm: 575;
+$md: 767;
+$lg: 991;
+$xl: 1199;
+$xl1: 1280;
+$xl2: 1365;
+$xl3: 1399;
+$xl4: 1599;
+
+@mixin min($value) {
+  @media screen and (min-width: ($value + 1 + "px")) {
+    @content;
+  }
+}
+@mixin max($value) {
+  @media screen and (max-width: ($value + "px")) {
+    @content;
+  }
+}
+@mixin minMax($min, $max) {
+  @media (min-width: ($min + "px")) and (max-width: ($max + "px")) {
+    @content;
+  }
+}
+@mixin flexCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@mixin flexCenterX {
+  display: flex;
+  align-items: center;
+}
+@mixin flexCenterY {
+  display: flex;
+  justify-content: center;
+}
+
+@mixin noUserSelect {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+}
+@mixin cssVariables {
+  --f36: 36px;
+  --f30: 30px;
+  --f24: 24px;
+  --f18: 18px;
+  @include max($lg) {
+    --f36: 24px;
+    --f24: 16px;
+    --f18: 16px;
+  }
+}

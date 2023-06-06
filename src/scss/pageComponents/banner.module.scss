@@ -1,0 +1,95 @@
+@import "../var";
+
+.banner {
+  position: relative;
+  padding: 4.5rem 0 0;
+  overflow: hidden;
+  max-width: 1920px;
+  margin: auto;
+
+  @include max($xl3) {
+    padding-bottom: 1rem;
+  }
+  @include max($lg) {
+    overflow: visible;
+    padding: 0rem 0 2rem;
+    :global {
+      .container.containerLeft {
+        margin-right: auto;
+      }
+    }
+  }
+  .bannerInner {
+    display: flex;
+    // align-items: flex-end;
+    align-items: center;
+    justify-content: space-between;
+    @include max($lg) {
+      gap: 1.5rem;
+      justify-content: initial;
+      flex-wrap: wrap-reverse;
+    }
+  }
+  .content {
+    // padding-bottom: 3rem;
+    color: $white;
+    flex-basis: 100%;
+    position: relative;
+    z-index: 2;
+    h5 {
+      margin-bottom: 10px;
+    }
+    h1 {
+      line-height: 1;
+      span {
+        display: block;
+      }
+    }
+    @include min($lg) {
+      flex-basis: 680px;
+      transform: translateY(50%);
+      .line2 {
+        transform: translateY(100%);
+        opacity: 0;
+      }
+      .line3 {
+        transform: translateY(100%);
+        opacity: 0;
+      }
+    }
+  }
+  .graphic {
+    flex-basis: 55%;
+    text-align: right;
+    flex-grow: 1;
+    position: relative;
+    z-index: 1;
+    @include max($lg) {
+      flex-grow: initial;
+      flex-basis: 100%;
+      // transform: scale(1.35);
+      // transform-origin: bottom;
+    }
+    video {
+      max-width: 100%;
+      @include min($lg) {
+        width: 100%;
+
+        // position: absolute;
+        // top: -7rem;
+        // right: 0;
+        // max-width: calc(100% + 320px);
+        // max-height: calc(100% + 10rem);
+        // max-width: calc(100% + 320px);
+        // max-height: calc(100% + 10rem);
+        // margin-left: -320px;
+      }
+      @include max($lg) {
+        max-width: calc(100% + 120px);
+        margin-left: -20px;
+        margin-top: 0px;
+        height: auto;
+      }
+    }
+  }
+}

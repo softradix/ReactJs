@@ -1,0 +1,88 @@
+@import "./var";
+@import "./common";
+
+.App {
+  // max-width: 2400px;
+  margin: auto;
+}
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow-y: auto;
+}
+.pin-spacer {
+  width: 100% !important;
+}
+
+// ======== form input fields ===============
+.inputField {
+  position: relative;
+  margin-bottom: 1.5rem;
+  --inputHeight: 65px;
+  input,
+  textarea {
+    padding: 1.25rem 1.5rem;
+    padding-right: 3.2rem;
+    background-color: rgba(#f4f4f4, 0.8);
+    border: 1px solid transparent;
+    border-radius: 10px;
+    &:focus {
+      box-shadow: none;
+      border-color: #4c40f7;
+      ~ .formField_icon {
+        color: #4c40f7;
+      }
+    }
+    &::placeholder {
+      color: #777e90;
+    }
+  }
+  input {
+    min-height: var(--inputHeight);
+  }
+  textarea {
+    min-height: 220px;
+    resize: none;
+  }
+  .formField_icon {
+    width: 20px;
+    height: auto;
+    top: calc(var(--inputHeight) / 2);
+    transform: translateY(-50%);
+    right: 1.25rem;
+    color: #111029;
+    position: absolute;
+  }
+  @include max(767) {
+    --inputHeight: 55px;
+    input,
+    textarea {
+      padding: 1rem 1.25rem;
+    }
+  }
+}
+
+.pageLoader {
+  position: fixed;
+  z-index: 999999;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #000;
+  color: #fff;
+  height: 100vh;
+  @include flexCenter;
+  font-size: 50px;
+  svg {
+    fill: currentColor;
+    height: auto;
+    width: 2em;
+  }
+}
+
+.scrollbar-track {
+  @include max($lg) {
+    display: none !important;
+  }
+}

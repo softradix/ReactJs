@@ -1,0 +1,211 @@
+@import "../var";
+
+@mixin middleBoxCommon {
+  position: absolute;
+  // height: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 340px;
+}
+
+.benefits {
+  --layerColor: linear-gradient(180deg, #150067 0%, #000000 100%);
+  color: #fff;
+  background-color: #150067;
+  padding: 1.5rem 0;
+  overflow: hidden;
+  width: 100% !important;
+  max-width: none !important;
+
+  .benefits_wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 830px;
+  }
+  @include min($lg) {
+    :global(.heading) {
+      margin: 0;
+      img,
+      p {
+        display: none;
+      }
+    }
+  }
+  @include max($lg) {
+    --layerColor: linear-gradient(
+      to bottom,
+      rgba(18, 23, 121, 1) 12%,
+      rgba(8, 100, 180, 0.6) 52%,
+      rgba(0, 170, 255, 0.01) 100%
+    );
+    background-color: $black;
+    padding: 4rem 1.5rem;
+    .benefits_wrapper {
+      margin-top: 9rem;
+      gap: 10px;
+    }
+  }
+}
+.inner_benefits {
+  // min-height: 100vh;
+  // padding-bottom: 3rem;
+}
+.layer {
+  // @include middleBoxCommon;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: translateX(-50%) scale(6, 1.6);
+  background: var(--layerColor);
+  border-radius: 50px;
+
+  @include max($lg) {
+    display: none;
+  }
+}
+
+.top_wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 5rem;
+  margin: 0 auto;
+  width: 100%;
+  .box {
+    width: 300px;
+    border-radius: 30px;
+    border: 2px solid #00bef7;
+    padding: 3rem;
+    h5 {
+      margin-bottom: 3rem;
+    }
+    &.leftBox {
+      transform: translate(-100%);
+    }
+    &.rightBox {
+      transform: translate(100%);
+    }
+  }
+
+  @include max($lg) {
+    padding-top: 2rem;
+    flex-wrap: wrap;
+    gap: 8px;
+    .box {
+      border: none;
+      width: 100%;
+      background-image: var(--layerColor);
+      background-color: $black;
+      padding: 50px 38px 50px 50px;
+      h5 {
+        min-height: 50px;
+        margin-bottom: 2rem;
+      }
+      &.leftBox,
+      &.rightBox {
+        transform: none;
+      }
+    }
+  }
+}
+.bottom_wrapper {
+  // position: relative;
+  // z-index: 1;
+  border: 1px solid #fffbe7;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 30px;
+  width: 75%;
+  margin: 0 auto;
+
+  .box {
+    width: 300px;
+    padding: 3rem;
+    h5 {
+      margin-bottom: 0.875rem;
+    }
+  }
+  @include max($lg) {
+    width: 100%;
+    border: none;
+    gap: 8px;
+    flex-wrap: wrap;
+    .box {
+      border-radius: 30px;
+      width: 100%;
+      background-image: var(--layerColor);
+      background-color: $black;
+      padding: 50px 38px 50px 50px;
+      h5 {
+        margin-bottom: 2rem;
+        min-height: 50px;
+      }
+      br {
+        display: none;
+      }
+    }
+  }
+}
+.middle_box {
+  position: relative;
+  padding: 2rem;
+  z-index: 1;
+  @include min($lg) {
+    @include middleBoxCommon;
+  }
+
+  img {
+    max-width: none;
+  }
+  p {
+    width: 58%;
+    margin-left: auto;
+  }
+  .images {
+    text-align: left;
+    position: relative;
+    margin-bottom: 3.5rem;
+    .screen {
+      width: 100%;
+      position: relative;
+      z-index: 1;
+      transform: rotate(15deg);
+    }
+    .hand {
+      position: absolute;
+      width: 370px;
+      transform: translate(-46%, 44%);
+      transform-origin: top center;
+      left: 0;
+      bottom: 0;
+    }
+  }
+
+  @include max($lg) {
+    background-image: var(--layerColor);
+    border-radius: 50px;
+    p {
+      width: 100%;
+    }
+    .middle_heading {
+      display: none;
+    }
+    .images {
+      margin: 0;
+      top: -80px;
+      max-width: 300px;
+      .hand {
+        width: 300px;
+        transform: translate(-40%, 30%) rotate(20deg);
+      }
+      .screen {
+        max-width: 255px;
+        transform: rotate(10deg) translate(25px, -70px) scale(0.95);
+      }
+    }
+  }
+}

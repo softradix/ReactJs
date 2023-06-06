@@ -1,0 +1,121 @@
+@import "../var";
+
+.footer {
+  background-color: #150067;
+  padding: 10rem 0 4rem;
+  color: $white;
+  font-size: var(--f18);
+  @include noUserSelect;
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    white-space: nowrap;
+  }
+  @include max($md) {
+    padding: 2rem 0 4rem;
+  }
+}
+.footer_links_col {
+  ul {
+    a {
+      display: contents;
+      color: inherit;
+    }
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    li {
+      cursor: pointer;
+      padding: 2px 0;
+      translate: 0.15s linear;
+      &:hover {
+        color: #f8b133;
+      }
+      &:active {
+        color: #009ee2;
+      }
+    }
+  }
+}
+.footer_top {
+  display: flex;
+  gap: 2rem 0;
+  flex-wrap: wrap;
+  .footer_left {
+    flex-grow: 1;
+    display: flex;
+    flex-wrap: wrap-reverse;
+    gap: 2rem;
+    > * {
+      flex-basis: 30%;
+      min-width: 200px;
+      // @include min($md) {
+      // }
+    }
+  }
+  .footer_right {
+    flex-shrink: 0;
+    .footer_detail_col {
+      h6 {
+        color: #fbca6d;
+      }
+      .logo {
+        margin-top: 1.5rem;
+        img {
+          max-width: 158px;
+        }
+      }
+    }
+  }
+  @include max($md) {
+    display: block;
+    .footer_left {
+      display: none;
+    }
+    .footer_right {
+      .footer_detail_col {
+        .logo {
+          margin: 0;
+          img {
+            max-width: 137px;
+          }
+        }
+        h6,
+        span {
+          display: none;
+        }
+      }
+    }
+  }
+}
+.footer_bottom {
+  margin-top: 8rem;
+  color: #8e8e8e;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  .termsPolicy {
+    align-items: center;
+    display: flex;
+    gap: 2.15rem;
+  }
+  @include max($md) {
+    font-size: 14px;
+    padding-left: 2.45rem;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap-reverse;
+    > * {
+      flex-basis: 100%;
+    }
+    .termsPolicy {
+      gap: 1rem;
+      flex-wrap: wrap-reverse;
+      span {
+        flex-basis: 100%;
+      }
+    }
+  }
+}

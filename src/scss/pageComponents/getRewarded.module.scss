@@ -1,0 +1,92 @@
+@import "../var";
+
+.rewarded {
+  color: $white;
+  background-color: #000;
+  position: relative;
+  padding: calc(10rem - 10vh) 0;
+  --contentWidth: 460px;
+  @include max($lg) {
+    padding: 3.5rem 0;
+  }
+  .rewarded_wrapper {
+    display: flex;
+    // align-items: center;
+    justify-content: space-between;
+    @include max($lg) {
+      padding: 0 1.5rem;
+      flex-wrap: wrap;
+      --contentWidth: 100%;
+      > * {
+        max-width: none;
+        flex-basis: 100%;
+      }
+    }
+  }
+
+  .content {
+    flex-shrink: 0;
+    position: relative;
+    z-index: 6;
+    flex-basis: var(--contentWidth);
+    max-width: var(--contentWidth);
+    h2 {
+      margin-bottom: 1.875rem;
+      line-height: 1;
+      @include max($lg) {
+        text-align: center;
+        margin-bottom: 2.5rem;
+      }
+    }
+    p {
+      font-size: 1rem;
+      line-height: 1.56;
+      text-align: justify;
+      &:not(:last-child) {
+        margin-bottom: 1rem;
+        @include max($lg) {
+          margin-bottom: 1.5rem;
+        }
+      }
+      span {
+        color: #f8b133;
+      }
+    }
+  }
+  .image_wrap {
+    flex-grow: 1;
+    position: relative;
+    flex-basis: 60%;
+    max-width: calc(100% - var(--contentWidth));
+    text-align: right;
+    video {
+      max-width: 1200px;
+      @include min($lg) {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+
+    @include max($xl3) {
+      video {
+        max-width: 1020px;
+      }
+    }
+    @include max($xl) {
+      video {
+        max-width: 790px;
+      }
+    }
+    @include max($lg) {
+      margin-top: 1rem;
+      flex-basis: 100%;
+      max-width: 100%;
+      video {
+        margin-left: -70%;
+        max-width: 175%;
+      }
+    }
+  }
+}

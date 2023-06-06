@@ -1,0 +1,265 @@
+@import "../var";
+
+.howWork {
+  overflow: hidden;
+  padding: 6rem 0;
+  background-image: url("../../assets/images/waveBg.jpg");
+  background-position: bottom;
+  background-size: 100% 110%;
+  background-repeat: no-repeat;
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    height: 10rem;
+    background: linear-gradient(180deg, #16087e, #150163);
+  }
+  @include max($md) {
+    background-image: url("../../assets/images/mobile_waveBg.png");
+    background-size: 100% 110%;
+    &::after {
+      background: linear-gradient(180deg, #16087e, #000);
+      @media only screen and (max-device-width: 991px) {
+        background: linear-gradient(180deg, #130774, #000);
+      }
+    }
+  }
+  @include max($sm) {
+    padding: 3rem 0;
+  }
+  .heading {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 2rem;
+    h2 {
+      line-height: 1;
+      font-weight: 600;
+      color: $themeBlue;
+    }
+    @include max($lg) {
+      display: none;
+    }
+  }
+  // .howWork_wrapperOuter {
+  // }
+  .howWork_wrapper {
+    --space: 1rem;
+    --width: 20%;
+    --maxWidth: 305px;
+    --minWidth: 220px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 3rem 0 2rem;
+    position: relative;
+    z-index: 1;
+    // margin: 0 calc(-1 * var(--space));
+    gap: calc(2 * var(--space)) 0;
+    @include max($xl1) {
+      --space: 10px;
+    }
+    @include max($xl) {
+      flex-wrap: wrap;
+      --space: 1rem;
+      --width: 50%;
+      --maxWidth: 325px;
+    }
+    @include max($lg) {
+      --maxWidth: none;
+      padding: 0;
+    }
+    @include max($sm) {
+      --space: 40px;
+      --width: 100%;
+    }
+    .card_col {
+      padding: 0 var(--space);
+      flex-shrink: 0;
+      &:not(.hasInnerCard) {
+        flex-basis: var(--width);
+        max-width: var(--maxWidth);
+        min-width: var(--minWidth);
+      }
+      &.hasInnerCard {
+        flex-grow: 1;
+        flex-basis: calc(2 * var(--width));
+      }
+      @include max($lg) {
+        &.hasInnerCard {
+          flex-basis: calc(2 * var(--width));
+          max-width: calc(2 * var(--maxWidth));
+          min-width: calc(2 * var(--minWidth));
+        }
+      }
+      @include max($sm) {
+        padding: 0;
+        &.hasInnerCard {
+          flex-basis: var(--width);
+          max-width: var(--maxWidth);
+          min-width: var(--minWidth);
+        }
+      }
+    }
+    .card {
+      --imgHeight: 110px;
+      min-height: 325px;
+      border-radius: 40px;
+      background: rgba($white, 0.1);
+      backdrop-filter: blur(8px);
+      color: $white;
+      padding: 1.15rem 1rem;
+      transition: 0.15s linear;
+
+      p {
+        position: relative;
+        font-size: 1.25rem;
+        font-weight: 300;
+        line-height: 1.35;
+        min-height: 120px;
+        span {
+          display: block;
+          transition: 0.15s linear;
+        }
+        .hoverDesc {
+          position: absolute;
+          width: 100%;
+          top: 0;
+          left: 0;
+          // opacity: 0;
+        }
+      }
+      .head {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 1.25rem;
+        min-height: 78px;
+      }
+      .step_number {
+        @include flexCenter;
+        height: 4rem;
+        width: 4rem;
+        // border: 2px solid #9be1ff;
+        border-radius: 50%;
+        font-size: 2.5rem;
+        margin-bottom: 0.875rem;
+        position: relative;
+      }
+      .circle_icn {
+        inset: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        svg {
+          height: 100%;
+          width: 100%;
+        }
+      }
+      .right_img {
+        transition: 0.15s linear;
+        transform-origin: left bottom;
+        img {
+          max-height: var(--imgHeight);
+        }
+      }
+      .btn_wrap {
+        text-align: center;
+        margin-top: 1.5rem;
+      }
+      button {
+        transition: 0.15s linear;
+        text-transform: uppercase;
+      }
+
+      &:hover {
+        background: rgba($white, 0.3);
+        backdrop-filter: blur(30px);
+        // .right_img {
+        //   transform: scale(1.2);
+        // }
+        .step_number {
+          border-width: 4px;
+        }
+        // p {
+        //   .desc {
+        //     opacity: 0;
+        //   }
+        //   .hoverDesc {
+        //     opacity: 1;
+        //   }
+        // }
+        button {
+          background-color: $white;
+          color: #321e84;
+          box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2),
+            inset 0px 10px 20px rgba(255, 255, 255, 0.5);
+        }
+      }
+
+      .innerCards_wrap {
+        display: flex;
+        @include max($lg) {
+          flex-wrap: wrap;
+        }
+        @include max($sm) {
+          gap: 4rem;
+          padding-bottom: 2rem;
+        }
+      }
+      .innerCard {
+        padding: 0 var(--space);
+        flex-shrink: 0;
+        flex-basis: calc(33.33%);
+        max-width: var(--maxWidth);
+        @include max($lg) {
+          flex-basis: calc(50%);
+          max-width: none;
+        }
+        @include max($sm) {
+          gap: var(--space) 0;
+          flex-basis: calc(100%);
+          max-width: none;
+        }
+      }
+
+      @include min($xl1) {
+        .right_img {
+          margin-top: -58px;
+        }
+      }
+      @include max($xl1) {
+        --imgHeight: 100px;
+        .head {
+          margin-bottom: 1rem;
+        }
+      }
+
+      @include max($lg) {
+        min-height: 0;
+        flex-basis: 100%;
+        max-width: 100%;
+        padding: 20px 20px 30px 20px;
+        p {
+          min-height: 0;
+        }
+      }
+      @include max($sm) {
+        --imgHeight: 120px;
+        .step_number {
+          margin-bottom: 0;
+        }
+        .right_img {
+          margin-top: -15%;
+        }
+        .head {
+          min-height: 0;
+        }
+        .innerCard {
+          padding: 0;
+        }
+      }
+    }
+  }
+}
